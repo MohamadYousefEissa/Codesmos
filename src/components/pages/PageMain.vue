@@ -35,7 +35,7 @@ const animCont = ref(null)
 function animTimeLine() {
   setTimeout(() => {
     animCont.value.style.animationPlayState = 'paused'
-    router.push('/Codesmos/Home')
+    router.push('/Home')
   }, 3500)
 }
 onMounted(() => {

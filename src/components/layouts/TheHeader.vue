@@ -4,7 +4,7 @@
       <div class="container-fluid container-lg m-lg-auto m-0">
         <div class="row text-md-center align-items-center gap-lg-5">
           <div class="col">
-            <router-link to="/Codesmos">
+            <router-link to="/">
               <img class="img-fluid" src="../../assets/images/Logo@x4.png" width="100" alt="logo" />
             </router-link>
           </div>
@@ -12,12 +12,12 @@
             class="col-md-10 d-grid d-md-flex justify-content-md-evenly list-unstyled"
             id="links-col"
           >
-            <router-link id="link" to="/Codesmos/Home">Home</router-link>
-            <router-link id="link" to="/Codesmos/Home/Products">Products</router-link>
-            <router-link id="link" to="/Codesmos/Portfolio">Portfolio</router-link>
-            <router-link id="link" to="/Codesmos/TheProcess">The process</router-link>
-            <router-link id="link" to="/Codesmos/AboutUs">About us</router-link>
-            <router-link id="link" to="/Codesmos/ContactUs">Contact us</router-link>
+            <router-link id="link" to="/Home">Home</router-link>
+            <router-link id="link" to="/Home/Products">Products</router-link>
+            <router-link id="link" to="/Portfolio">Portfolio</router-link>
+            <router-link id="link" to="/TheProcess">The process</router-link>
+            <router-link id="link" to="/AboutUs">About us</router-link>
+            <router-link id="link" to="/ContactUs">Contact us</router-link>
           </div>
 
           <div class="col d-flex d-md-none justify-content-end p-0">

@@ -20,7 +20,7 @@
               />
             </div>
             <div>
-              <router-link to="/Codesmos/Home/Products">
+              <router-link to="/Home/Products">
                 <button class="home-btn">><span class="line">_</span> "Get started"</button>
               </router-link>
             </div>

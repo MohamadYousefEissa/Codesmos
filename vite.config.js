@@ -13,6 +13,5 @@ export default defineConfig({
   },
   server: {
     host: true
-  },
-  base: '/Codesmos/'
+  }
 })

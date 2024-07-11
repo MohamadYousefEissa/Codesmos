@@ -7,14 +7,14 @@
             <h5>Menu</h5>
             <div class="row list-unstyled mt-4">
               <div class="col d-flex gap-3 flex-column px-4 text-nowrap">
-                <router-link to="/Codesmos/Home">Home</router-link>
-                <router-link to="/Codesmos/Home/Products">Products</router-link>
-                <router-link to="/Codesmos/Portfolio">Portfolio</router-link>
+                <router-link to="/Home">Home</router-link>
+                <router-link to="/Home/Products">Products</router-link>
+                <router-link to="/Portfolio">Portfolio</router-link>
               </div>
               <div class="col d-flex gap-3 flex-column px-4 text-nowrap">
-                <router-link to="/Codesmos/TheProcess">The process</router-link>
-                <router-link to="/Codesmos/AboutUs">About us</router-link>
-                <router-link to="/Codesmos/ContactUs">Contact us</router-link>
+                <router-link to="/TheProcess">The process</router-link>
+                <router-link to="/AboutUs">About us</router-link>
+                <router-link to="/ContactUs">Contact us</router-link>
               </div>
             </div>
           </div>

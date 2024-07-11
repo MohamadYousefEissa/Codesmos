@@ -16,30 +16,30 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/Codesmos',
+      path: '/',
       components: { default: PageMain, TheHeader },
       meta: { transition: 'none' }
     },
     {
-      path: '/Codesmos/Home',
+      path: '/Home',
       components: { default: PageHome, TheHeader, TheFooter },
       children: [{ path: 'Products', component: PageProducts }],
       meta: { transition: 'none' }
     },
     {
-      path: '/Codesmos/Portfolio',
+      path: '/Portfolio',
       components: { default: PagePortfolio, TheHeader, TheFooter }
     },
     {
-      path: '/Codesmos/TheProcess',
+      path: '/TheProcess',
       components: { default: PageTheProcess, TheHeader, TheFooter }
     },
     {
-      path: '/Codesmos/AboutUs',
+      path: '/AboutUs',
       components: { default: PageAboutUs, TheHeader, TheFooter }
     },
     {
-      path: '/Codesmos/ContactUs',
+      path: '/ContactUs',
       components: {
         default: PageContactUs,
         TheHeader,
