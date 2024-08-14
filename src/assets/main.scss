@@ -6,15 +6,17 @@ $dark-purple: #21043d;
 $silver: #a2a2a1;
 
 @font-face {
-  font-family: 'Century Gothic Paneuropean';
+  font-family: 'Century-Gothic';
+  src: url('./CenturyGothicPaneuropeanRegular.ttf') format('truetype');
   font-weight: normal;
-  src: url('./CenturyGothicPaneuropeanRegular.ttf');
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Century Gothic Paneuropean';
+  font-family: 'Century-Gothic';
+  src: url('./CenturyGothicPaneuropeanBold.ttf') format('truetype');
   font-weight: bold;
-  src: url('./CenturyGothicPaneuropeanBold.ttf');
+  font-display: swap;
 }
 
 @mixin responsive($screen) {
@@ -43,7 +45,7 @@ $silver: #a2a2a1;
 
 body {
   background-color: $rich-black;
-  font-family: 'Century Gothic Paneuropean';
+  font-family: 'Century-Gothic';
   font-weight: normal;
   overflow-x: hidden;
 }
@@ -112,15 +114,6 @@ footer {
   nav {
     width: 100vw;
     height: 90px;
-  }
-
-  .active-link {
-    font-weight: normal !important;
-    color: white !important;
-
-    &::after {
-      display: none !important;
-    }
   }
 
   #links-col {
