@@ -5,28 +5,28 @@ export default {
     }
   },
   actions: {
-    nextPage(contex) {
+    nextPage(context) {
       const pages = document.querySelectorAll('.paper')
-      const cp = contex.state.currentPage
+      const cp = context.state.currentPage
       if (cp < pages.length + 1) {
-        if (cp === 1) contex.dispatch('openBook')
-        else if (cp === pages.length) contex.dispatch('closeBook', false)
+        if (cp === 1) context.dispatch('openBook')
+        else if (cp === pages.length) context.dispatch('closeBook', false)
         pages[cp - 1].classList.add('flipped')
         pages[cp - 1].style.zIndex = cp
-        contex.state.currentPage++
-        contex.commit('watchPage', contex.state.currentPage)
+        context.state.currentPage++
+        context.commit('watchPage', context.state.currentPage)
       }
     },
-    previousPage(contex) {
+    previousPage(context) {
       const pages = document.querySelectorAll('.paper')
-      const cp = contex.state.currentPage
+      const cp = context.state.currentPage
       if (cp > 1) {
-        if (cp === 2) contex.dispatch('closeBook', true)
-        else if (cp === pages.length + 1) contex.dispatch('openBook')
+        if (cp === 2) context.dispatch('closeBook', true)
+        else if (cp === pages.length + 1) context.dispatch('openBook')
         pages[cp - 2].classList.remove('flipped')
         pages[cp - 2].style.zIndex = pages.length + 1 - pages[cp - 2].style.zIndex
-        contex.state.currentPage--
-        contex.commit('watchPage', contex.state.currentPage)
+        context.state.currentPage--
+        context.commit('watchPage', context.state.currentPage)
       }
     },
     openBook() {
@@ -37,14 +37,14 @@ export default {
       const book = document.querySelector('#book')
       book.style.transform = isFirstPage ? 'translateX(0%)' : 'translateX(100%)'
     },
-    keyboardEvents(contex) {
+    keyboardEvents(context) {
       window.addEventListener('keyup', (ev) => {
-        if (ev.key === 'ArrowRight' || ev.key.toLowerCase() === 'd') contex.dispatch('nextPage')
+        if (ev.key === 'ArrowRight' || ev.key.toLowerCase() === 'd') context.dispatch('nextPage')
         else if (ev.key === 'ArrowLeft' || ev.key.toLowerCase() === 'a')
-          contex.dispatch('previousPage')
+          context.dispatch('previousPage')
       })
     },
-    swipeEffect(contex) {
+    swipeEffect(context) {
       const book = document.querySelector('#book')
       let touchStartX = 0
       let touchEndX = 0
@@ -55,8 +55,8 @@ export default {
       })
       book.addEventListener('touchend', (ev) => {
         touchEndX = ev.changedTouches[0].screenX
-        if (touchEndX < touchStartX) contex.dispatch('nextPage')
-        if (touchEndX > touchStartX) contex.dispatch('previousPage')
+        if (touchEndX < touchStartX) context.dispatch('nextPage')
+        if (touchEndX > touchStartX) context.dispatch('previousPage')
       })
       book.addEventListener('dragstart', (ev) => {
         dragStartX = ev.screenX
@@ -64,8 +64,8 @@ export default {
 
       book.addEventListener('dragend', (ev) => {
         dragEndX = ev.screenX
-        if (dragEndX < dragStartX) contex.dispatch('nextPage')
-        if (dragEndX > dragStartX) contex.dispatch('previousPage')
+        if (dragEndX < dragStartX) context.dispatch('nextPage')
+        if (dragEndX > dragStartX) context.dispatch('previousPage')
       })
     }
   },

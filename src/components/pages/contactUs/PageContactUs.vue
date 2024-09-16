@@ -29,7 +29,7 @@
           </template>
         </v-box>
         <div class="col">
-          <form method="post">
+          <form @submit.prevent="sendEmail">
             <div class="container text-white">
               <div class="row gap-md-5 gap-xl-5 gap-lg-1">
                 <div class="col">
@@ -84,6 +84,7 @@
                       name="needed-service"
                       id="web-development"
                       value="Web development"
+                      v-model="neededService"
                     />
                     <label class="ms-3" for="web-development">Web development</label>
                   </div>
@@ -96,6 +97,7 @@
                       name="needed-service"
                       id="applications-development"
                       value="Applications development"
+                      v-model="neededService"
                     />
                     <label class="ms-3" for="applications-development"
                       >Applications development</label
@@ -112,13 +114,21 @@
                       name="needed-service"
                       id="uiux-design"
                       value="UI/UX design"
+                      v-model="neededService"
                     />
                     <label class="ms-3" for="uiux-design">UI/UX design</label>
                   </div>
                 </div>
                 <div class="col mt-2 mt-md-2 mt-xl-0">
                   <div class="d-flex align-items-center">
-                    <input type="radio" required name="needed-service" id="other" value="Other" />
+                    <input
+                      type="radio"
+                      required
+                      name="needed-service"
+                      id="other"
+                      value="Other"
+                      v-model="neededService"
+                    />
                     <label class="ms-3" for="other">Other</label>
                   </div>
                 </div>
@@ -136,7 +146,26 @@
               </div>
               <div class="row text-center mt-5">
                 <div class="col">
-                  <button type="submit">Send request</button>
+                  <button type="submit" disabled v-if="$store.getters.isSend === 'sending'">
+                    Sending ...
+                  </button>
+                  <button
+                    type="submit"
+                    class="bg-success"
+                    disabled
+                    v-else-if="$store.getters.isSend"
+                  >
+                    Sent Successfully
+                  </button>
+                  <button
+                    type="submit"
+                    class="bg-danger"
+                    disabled
+                    v-else-if="$store.getters.isSend === false"
+                  >
+                    Error While Sent
+                  </button>
+                  <button type="submit" v-else>Send request</button>
                 </div>
               </div>
             </div>
@@ -150,12 +179,25 @@
 <script>
 import VBox from './VBox.vue'
 import VInputs from './VInputs.vue'
+import emailjs from '@emailjs/browser'
 export default {
   components: { VBox, VInputs },
   data() {
     return {
-      phone: null
+      neededService: null
     }
+  },
+  methods: {
+    sendEmail() {
+      this.$store.dispatch('sendEmail', { neededService: this.neededService })
+    }
+  },
+  mounted() {
+    ;(function () {
+      emailjs.init({
+        publicKey: 'CsxvoQFXut_00PpaW'
+      })
+    })()
   }
 }
 </script>

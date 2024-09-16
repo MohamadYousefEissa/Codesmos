@@ -1,8 +1,9 @@
 import { createStore } from 'vuex'
 
 import portfolio from './portfolio'
+import sendEmail from './sendEmail'
 const store = createStore({
-  modules: { portfolio },
+  modules: { portfolio, sendEmail },
   state() {
     return {
       isLoad: false
